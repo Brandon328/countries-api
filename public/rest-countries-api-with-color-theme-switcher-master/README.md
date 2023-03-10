@@ -19,9 +19,19 @@ You can use any JavaScript framework/library on the front-end such as [React](ht
 Your users should be able to:
 
 - See all countries from the API on the homepage
+  <https://restcountries.com/v3.1/all?fields=name>,flags
+
 - Search for a country using an `input` field
+  <https://restcountries.com/v3.1/name/peru>
+
+
 - Filter countries by region
+  <https://restcountries.com/v3.1/region/europe>
+
+
 - Click on a country to see more detailed information on a separate page
+
+
 - Click through to the border countries on the detail page
 - Toggle the color scheme between light and dark mode *(optional)*
 
