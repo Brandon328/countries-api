@@ -1,5 +1,6 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+@import url('./css/reset.css');
+@import url('./css/slider.css');
 
 
 :root{
@@ -29,9 +30,57 @@ header{
   background-color: var(--dark-mode-text-and-light-mode-elements);
   margin-bottom: 35px;
   box-shadow: 1px 3px 6px 0px rgba(115, 115, 115, 0.15);
-
 }
 
 header h1{
   font-size: inherit;
+}
+
+main{
+  padding: 0 25px;
+}
+
+
+/* search-box */
+.main__header{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-box{
+  min-width: 300px;
+  max-width: 400px;
+  width: 100%;
+  background-color: var(--dark-mode-text-and-light-mode-elements);
+  box-shadow: 1px 3px 6px 0px rgba(115, 115, 115, 0.15);
+  display: flex;
+  align-items: center;
+  padding: 10px 30px;
+  margin-bottom: 50px;
+  margin-right: 50px;
+}
+
+.search-box img{
+  width: 20px;
+  margin-right: 25px;
+}
+
+.search-box input{
+  border: none;
+  padding: 10px;
+}
+
+
+/* Regions selector */
+select[name="regions"]{
+  border: none;
+  background-color: var(--dark-mode-text-and-light-mode-elements);
+  box-shadow: 1px 3px 6px 0px rgba(115, 115, 115, 0.15);
+  padding: 20px 30px;
+}
+
+select[name="regions"]:focus {
+  outline:none;
 }

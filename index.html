@@ -5,26 +5,22 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./src/css/dark.css" media="(prefers-color-scheme: dark)">
   <title>All Countries</title>
 </head>
 
 <body>
   <header>
     <h1>Where in the world?</h1>
-    <!-- <div class="dark-mode-toggle">
-      <img src="" alt="">
-      <span>Dark Mode</span>
-    </div> -->
     <dark-mode-toggle class="slider">
     </dark-mode-toggle>
   </header>
   <main>
     <section class="main__header">
-      <div>
-        <img src="" alt="">
+      <div class="search-box">
+        <img src="search-icon.svg" alt="search icon">
         <input type="text" placeholder="Search for a country...">
       </div>
-
       <select name="regions" id="regions">
         <option hidden selected>Filter by Region</option>
         <option value="africa">Africa</option>
@@ -46,7 +42,7 @@
         border_countries="France,Germany,Netherlands"></country-detail>
     </section>
   </main>
-  <script type="module" src="src/main.js"></script>
+  <script type="module" src="./src/main.js"></script>
 </body>
 
 </html>
