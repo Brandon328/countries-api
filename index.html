@@ -17,6 +17,10 @@
   </header>
   <main>
     <section class="main__header">
+      <div class="back-btn">
+        <img src="left-arrow.svg" alt="arrow icon">
+        <input type="button" value="Back">
+      </div>
       <div class="search-box">
         <img src="search-icon.svg" alt="search icon">
         <input type="text" placeholder="Search for a country...">
@@ -30,7 +34,7 @@
         <option value="oceania">Oceania</option>
       </select>
     </section>
-    <section class="countries-galery">
+    <section class="countries-galery inactive">
       <country-card flag="https://www.guiadealemania.com/wp-content/uploads/2011/01/Bandera-de-Alemania.png"
         name="Germany" population="900,400,222" region="Europe" capital="Berlin">
       </country-card>
@@ -50,7 +54,7 @@
         name="Germany" population="900,400,222" region="Europe" capital="Berlin">
       </country-card>
     </section>
-    <section class="country-detail-container inactive">
+    <section class="country-detail-container">
       <country-detail flag="https://www.guiadealemania.com/wp-content/uploads/2011/01/Bandera-de-Alemania.png"
         name="Germany" native_name="German" population="11,319,222" region="Europe" subregion="Western Europe"
         capital="Berlin" domain=".be" currencies="Euro" languages="Dutch, French, German"

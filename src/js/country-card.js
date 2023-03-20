@@ -44,6 +44,11 @@ class CountryCard extends HTMLElement {
           box-shadow: 1px 3px 6px 0px rgba(115, 115, 115, 0.15);
           border-radius: 6px;
           cursor: pointer;
+          transform: scale(1);
+          transition: 0.4s transform;
+        }
+        :host(:hover){
+          transform: scale(1.05);
         }
         img{
           border-radius: 6px 6px 0 0;

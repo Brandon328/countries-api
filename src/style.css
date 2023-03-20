@@ -2,7 +2,6 @@
 @import url('./css/reset.css');
 @import url('./css/slider.css');
 
-
 :root{
   --dark-mode-elements-color: hsl(209, 23%, 22%);
   --dark-mode-background-color: hsl(207, 26%, 17%);
@@ -11,16 +10,13 @@
   --light-mode-input: hsl(0, 0%, 52%);
   --dark-mode-text-and-light-mode-elements: hsl(0, 0%, 100%);
 }
-
 html{
   font-size: 14px;
 }
-
 body{
   font-family: 'Nunito Sans', sans-serif;
   background-color: var(--light-mode-background-color);
 }
-
 header{
   display: flex;
   justify-content: space-between;
@@ -30,15 +26,31 @@ header{
   margin-bottom: 35px;
   box-shadow: 1px 3px 6px 0px rgba(115, 115, 115, 0.15);
 }
-
 header h1{
   font-size: 1rem;
 }
-
 main{
   padding: 0 25px;
 }
 
+/* back button */
+.back-btn{
+  display: flex;
+  cursor: pointer;
+  background-color: var(--dark-mode-text-and-light-mode-elements);
+  box-shadow: 1px 3px 6px 2px rgba(115, 115, 115, 0.15);
+  padding: 8px 30px;
+  border-radius: 8px;
+}
+.back-btn img{
+  width: 15px;
+  margin-right: 16px;
+}
+.back-btn input{
+  background-color: transparent;
+  border:none;
+  cursor:pointer;
+}
 
 /* search-box */
 .main__header{
@@ -48,7 +60,6 @@ main{
   align-items: center;
   margin-bottom: 40px;
 }
-
 .search-box{
   min-width: 250px;
   max-width: 400px;
@@ -60,20 +71,18 @@ main{
   padding: 10px 30px;
   margin-bottom: 20px;
   margin-right: 50px;
+  border-radius: 8px;
 }
-
 .search-box img{
   width: 20px;
   margin-right: 25px;
   cursor: pointer;
 }
-
 .search-box input{
   border: none;
   padding: 10px;
   width: 100%;
 }
-
 
 /* Regions selector */
 select[name="regions"]{
@@ -81,13 +90,13 @@ select[name="regions"]{
   background-color: var(--dark-mode-text-and-light-mode-elements);
   box-shadow: 1px 3px 6px 0px rgba(115, 115, 115, 0.15);
   padding: 20px 30px;
+  border-radius: 8px;
 }
-
 select[name="regions"]:focus {
   outline:none;
 }
 
-
+/* Others */
 .countries-galery{
   display: grid;
   gap: 40px;
@@ -97,16 +106,14 @@ select[name="regions"]:focus {
   justify-content: center;
   padding-bottom: 80px;
 }
-
 .country-detail-container{
   padding-bottom: 80px;
 }
-
 .inactive{
   display: none;
 }
 
-
+/* Responsive */
 @media (min-width:600px) {
   header{
     padding: 35px 50px;

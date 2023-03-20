@@ -31,6 +31,11 @@ class CountryTag extends HTMLElement {
           width: auto;
           border-radius: 4px;
           color: #6f6f6f;
+          transform: scale(1);
+          transition: .4s transform;
+        }
+        :host(:hover) input{
+          transform: scale(1.1);
         }
       </style>
     `;
