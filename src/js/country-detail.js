@@ -54,9 +54,11 @@ class CountryDetail extends HTMLElement {
             </p>
           </div>
         </div>
-        <div>
-          <b>Border Countries: </b>
-          ${countriesHTML}
+        <div class="border-countries-container">
+          <p>Border Countries: </p>
+          <div>
+            ${countriesHTML}
+          </div>
         </div>
       </div>
       ${this.getStyle()}
@@ -64,7 +66,59 @@ class CountryDetail extends HTMLElement {
     return template;
   }
   getStyle() {
-    return `<style></style>`;
+    return `<style>
+      :host{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        align-items: center;
+        gap: 30px;
+      }
+      img{
+        width: 100%;
+      }
+      h2{
+        font-size: 1.5rem;
+        margin: 0 0 20px 0;
+      }
+      p{
+        margin: 10px 0;
+      }
+      b{
+        font-weight: 600;
+      }
+      .details-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+      .details-container div:nth-child(1),
+      .details-container div:nth-child(2){
+        margin-bottom: 30px;
+      }
+      .border-countries-container{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+      }
+      .border-countries-container p{
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0 24px 0 0;
+      }
+      country-tag{
+        margin-right: 4px;
+      }
+      @media (min-width:1300px) {
+        :host{
+          gap: 60px;
+        }
+      }
+      @media (min-width:1600px) {
+        :host{
+          gap: 120px;
+        }
+      }
+    </style>`;
   }
   render() {
     this.shadowRoot.appendChild(this.getTemplate().content.cloneNode(true));

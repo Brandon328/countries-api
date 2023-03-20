@@ -14,7 +14,7 @@ class CountryTag extends HTMLElement {
   getTemplate() {
     const template = document.createElement('template');
     template.innerHTML = `
-      <h3>${this.name}</h3>
+      <input type="button" value="${this.name}">
       ${this.getStyle()}
     `;
     return template;
@@ -22,8 +22,15 @@ class CountryTag extends HTMLElement {
   getStyle() {
     return `
       <style>
-        h3{
-          color: red;
+        input{
+          background-color: var(--dark-mode-text-and-light-mode-elements);
+          padding: 10px 20px;
+          border: none;
+          cursor: pointer;
+          box-shadow: 1px 3px 6px 2px rgba(115, 115, 115, 0.15);
+          width: auto;
+          border-radius: 4px;
+          color: #6f6f6f;
         }
       </style>
     `;
