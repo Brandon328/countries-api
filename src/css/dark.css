@@ -1,7 +1,13 @@
-*{
-  color: white;
+:root{
+  --text-color: hsl(0, 0%, 100%) !important;
+  --background-color: hsl(207, 26%, 17%) !important;
+  --elements-color: hsl(209, 23%, 22%) !important;
 }
 
-html body{
-  background-color: black;
+*{
+  box-shadow: none !important;
+}
+
+.back-btn img{
+  content: url("../../public/white-left-arrow.svg");
 }

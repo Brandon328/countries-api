@@ -30,7 +30,7 @@ class CountryTag extends HTMLElement {
           box-shadow: 1px 3px 6px 2px rgba(115, 115, 115, 0.15);
           width: auto;
           border-radius: 4px;
-          color: #6f6f6f;
+          color: var(--text-color);
           transform: scale(1);
           transition: .4s transform;
         }

@@ -40,7 +40,7 @@ class CountryCard extends HTMLElement {
           max-width: 400px;
           width: 100%;
           min-height: 360px;
-          background-color: var(--dark-mode-text-and-light-mode-elements);
+          background-color: var(--elements-color);
           box-shadow: 1px 3px 6px 0px rgba(115, 115, 115, 0.15);
           border-radius: 6px;
           cursor: pointer;
