@@ -103,7 +103,7 @@ select[name="regions"]:focus {
 }
 
 /* Others */
-.countries-galery{
+.countries-gallery{
   display: grid;
   gap: 40px;
   justify-items: center;
