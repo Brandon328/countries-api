@@ -9,5 +9,5 @@
 }
 
 .back-btn img{
-  content: url("../../public/white-left-arrow.svg");
+  content: url("/white-left-arrow.svg");
 }
