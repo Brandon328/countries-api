@@ -9,6 +9,11 @@ import 'dark-mode-toggle';
 import './js/router/router';
 
 // Utils
+import './js/utils/events';
 import { getCountries } from './js/utils/requestapi';
 
 window.addEventListener('DOMContentLoaded', getCountries, false);
+
+function search() {
+  console.log('hola');
+}

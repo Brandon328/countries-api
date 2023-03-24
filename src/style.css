@@ -32,6 +32,9 @@ header{
 header h1{
   font-size: 1rem;
 }
+header h1 a{
+  text-decoration: none;
+}
 main{
   padding: 0 25px;
 }
@@ -77,6 +80,10 @@ main{
   margin-bottom: 20px;
   margin-right: 50px;
   border-radius: 8px;
+}
+.search-box button{
+  background-color: transparent;
+  border: none;
 }
 .search-box img{
   width: 20px;

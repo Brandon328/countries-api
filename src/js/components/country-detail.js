@@ -11,15 +11,30 @@ class CountryDetail extends HTMLElement {
       this[attr] = newValue;
     }
   }
+  getBorderCountries() {
+    if (this.border_countries) {
+      const borderCountriesArray = this.border_countries.split(',');
+      let countriesHTML = '';
+      borderCountriesArray.forEach(country => {
+        countriesHTML += `
+          <country-tag name="${country}"></country-tag>
+        `
+      });
+
+      return `
+        <div class="border-countries-container">
+          <p>Border Countries: </p>
+          <div>
+            ${countriesHTML}
+          </div>
+        </div>
+      `
+    }
+    else
+      return '';
+  }
   getTemplate() {
     const template = document.createElement('template');
-    const borderCountriesArray = this.border_countries.split(',');
-    let countriesHTML = '';
-    borderCountriesArray.forEach(country => {
-      countriesHTML += `
-        <country-tag name="${country}"></country-tag>
-      `
-    });
     template.innerHTML = `
       <img src="${this.flag}" alt="${this.name} flag">
       <div>
@@ -54,12 +69,7 @@ class CountryDetail extends HTMLElement {
             </p>
           </div>
         </div>
-        <div class="border-countries-container">
-          <p>Border Countries: </p>
-          <div>
-            ${countriesHTML}
-          </div>
-        </div>
+        ${this.getBorderCountries()}
       </div>
       ${this.getStyle()}
     `;

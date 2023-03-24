@@ -1,5 +1,5 @@
 import { countriesGallery, countryDetailContainer, btnRegions, btnBack } from '../utils/nodes';
-import { getCountries, getCountry } from '../utils/requestapi';
+import { getCountries, getCountry, getCountryBySearch } from '../utils/requestapi';
 
 const home = function () {
   countriesGallery.classList.remove('inactive');
@@ -18,6 +18,7 @@ const detail = function () {
 var routes = {
   '/': [home, getCountries],
   '/detail/:countryName': [detail, getCountry],
+  '/search/:input': [home, getCountryBySearch]
   // '/books/view/:bookId': viewBook
 };
 export default routes;

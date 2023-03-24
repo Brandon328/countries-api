@@ -45,6 +45,10 @@ class CountryTag extends HTMLElement {
   }
   connectedCallback() {
     this.render();
+    const input = this.shadowRoot.querySelector('input');
+    input.addEventListener('click', () => {
+      window.location.hash = `#detail/${this.name.toLowerCase()}`;
+    });
   }
 }
 customElements.define('country-tag', CountryTag);

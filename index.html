@@ -14,7 +14,9 @@
 
 <body>
   <header>
-    <h1>Where in the world?</h1>
+    <h1>
+      <a href="/">Where in the world?</a>
+    </h1>
     <dark-mode-toggle class="slider">
     </dark-mode-toggle>
   </header>
@@ -24,10 +26,12 @@
         <img src="left-arrow.svg" alt="arrow icon">
         <input type="button" value="Back">
       </div>
-      <div class="search-box">
-        <img src="search-icon.svg" alt="search icon">
-        <input type="text" placeholder="Search for a country...">
-      </div>
+      <form class="search-box">
+        <button id="search-box__btn">
+          <img src="search-icon.svg" alt="search icon">
+        </button>
+        <input id="search-box__input" type="text" placeholder="Search for a country..." required>
+      </form>
       <select name="regions" id="regions">
         <option hidden selected>Filter by Region</option>
         <option value="africa">Africa</option>
@@ -39,10 +43,6 @@
     </section>
     <section class="countries-gallery"></section>
     <section class="country-detail-container inactive">
-      <!-- <country-detail flag="https://www.guiadealemania.com/wp-content/uploads/2011/01/Bandera-de-Alemania.png"
-        name="Germany" native_name="German" population="11,319,222" region="Europe" subregion="Western Europe"
-        capital="Berlin" domain=".be" currencies="Euro" languages="Dutch, French, German"
-        border_countries="France,Germany,Netherlands"></country-detail> -->
     </section>
   </main>
   <script type="module" src="./src/main.js"></script>

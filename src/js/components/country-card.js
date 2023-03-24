@@ -14,18 +14,20 @@ class CountryCard extends HTMLElement {
   getTemplate() {
     const template = document.createElement('template');
     template.innerHTML = `
-      <img src="${this.flag}" alt="${this.name} flag">
-      <div>
-        <h2>${this.name}</h2>
-        <p>
-          <b>Population: </b><span>${this.population}</span>
-        </p>
-        <p>
-          <b>Region: </b><span>${this.region}</span>
-        </p>
-        <p>
-          <b>Capital: </b><span>${this.capital}</span>
-        </p>
+      <div class="country-card">
+        <img src="${this.flag}" alt="${this.name} flag">
+        <div class="country-card__info">
+          <h2>${this.name}</h2>
+          <p>
+            <b>Population: </b><span>${this.population}</span>
+          </p>
+          <p>
+            <b>Region: </b><span>${this.region}</span>
+          </p>
+          <p>
+            <b>Capital: </b><span>${this.capital}</span>
+          </p>
+        </div>
       </div>
       ${this.getStyle()}
     `;
@@ -36,18 +38,20 @@ class CountryCard extends HTMLElement {
       <style>
         :host{
           display: block;
+          box-shadow: 1px 3px 6px 0px rgba(115, 115, 115, 0.15);
+        }
+        .country-card{
           min-width: 300px;
           max-width: 400px;
           width: 100%;
           min-height: 360px;
           background-color: var(--elements-color);
-          box-shadow: 1px 3px 6px 0px rgba(115, 115, 115, 0.15);
           border-radius: 6px;
           cursor: pointer;
           transform: scale(1);
           transition: 0.4s transform;
         }
-        :host(:hover){
+        :host(:hover) .country-card{
           transform: scale(1.05);
         }
         img{
@@ -55,19 +59,19 @@ class CountryCard extends HTMLElement {
           width: 100%;
           position: relative;
         }
-        div{
+        .country-card__info{
           padding: 20px;
         }
-        div h2, div p{
+        .country-card__info h2, .country-card__info p{
           margin: 0;
         }
-        div h2{
+        .country-card__info h2{
           margin-bottom: 20px;
         }
-        div p{
+        .country-card__info p{
           margin-bottom: 8px;
         }
-        div p b{
+        .country-card__info p b{
           font-weight: 600;
         }
       </style>
@@ -78,6 +82,10 @@ class CountryCard extends HTMLElement {
   }
   connectedCallback() {
     this.render();
+    const countryCard = this.shadowRoot.querySelector('.country-card');
+    countryCard.addEventListener('click', () => {
+      window.location.hash = `#detail/${this.name.toLowerCase()}`;
+    });
   }
 }
 customElements.define('country-card', CountryCard);
