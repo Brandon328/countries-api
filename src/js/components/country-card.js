@@ -1,3 +1,4 @@
+import { history } from '../utils/events';
 class CountryCard extends HTMLElement {
   constructor() {
     super();
@@ -84,7 +85,9 @@ class CountryCard extends HTMLElement {
     this.render();
     const countryCard = this.shadowRoot.querySelector('.country-card');
     countryCard.addEventListener('click', () => {
-      window.location.hash = `#detail/${this.name.toLowerCase()}`;
+      const hash = `#detail/${this.name.toLowerCase()}`;
+      window.location.hash = hash;
+      history.push(hash);
     });
   }
 }

@@ -1,3 +1,4 @@
+import { history } from "../utils/events";
 class CountryTag extends HTMLElement {
   constructor() {
     super();
@@ -47,7 +48,9 @@ class CountryTag extends HTMLElement {
     this.render();
     const input = this.shadowRoot.querySelector('input');
     input.addEventListener('click', () => {
-      window.location.hash = `#detail/${this.name.toLowerCase()}`;
+      const hash = `#detail/${this.name.toLowerCase()}`;
+      window.location.hash = hash;
+      history.push(hash);
     });
   }
 }

@@ -5,6 +5,7 @@ import './style.css';
 import './js/components/country-card';
 import './js/components/country-tag';
 import './js/components/country-detail';
+import './js/components/search-not-found';
 import 'dark-mode-toggle';
 import './js/router/router';
 
