@@ -12,10 +12,7 @@ This is a solution to the [REST Countries API with color theme switcher challeng
   - [My process](#my-process)
     - [Built with](#built-with)
     - [What I learned](#what-i-learned)
-    - [Continued development](#continued-development)
-    - [Useful resources](#useful-resources)
   - [Author](#author)
-  - [Acknowledgments](#acknowledgments)
 
 
 ## Overview
@@ -47,63 +44,66 @@ Users should be able to:
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
+- CSS3
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+- [Vite.js](https://vitejs.dev/)
+- [Web components](https://www.webcomponents.org/)
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+I learned to create and use web components to develop a scalable and reusable web app. Web components are a collection of web platform APIs and technologies that allow developers to create reusable custom elements for web pages and web applications. By using web components, you can encapsulate your code and functionality into small, reusable components that can be easily used and maintained across multiple web pages and applications. This can help to make your code more modular, easier to test, and simpler to maintain and update over time.
 
-To see how you can add code snippets, see below:
+I did this using JavaScript only. It looks like this.
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
+```javascript
+class WebComponentName extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+  }
+  static get observedAttributes() {
+    return ['name', 'price'];
+  }
+  attributeChangedCallback(attr, oldValue, newValue) {
+    if (oldValue !== newValue) {
+      this[attr] = newValue;
+    }
+  }
+  getTemplate() {
+    const template = document.createElement('template');
+    template.innerHTML = `
+      <h2>${this.name}</h2>
+      <p>${this.price}</p>
+      ${this.getStyle()}
+    `;
+    return template;
+  }
+  getStyle() {
+    return `
+      <style>
+      
+      </style>
+    `;
+  }
+  render() {
+    this.shadowRoot.appendChild(this.getTemplate().content.cloneNode(true));
+  }
+  connectedCallback() {
+    this.render();
+  }
 }
+customElements.define('', WebComponentName);
+
 ```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Website - [Brandon James Huaman](https://www.brandonjj.com)
+- Frontend Mentor - [@Brandon328](https://www.frontendmentor.io/profile/Brandon328)
+- Twitter - [@BrandonJJ328](https://www.twitter.com/BrandonJJ328)
+- Linkedin - [@BrandonJJ](https://www.linkedin.com/in/brandonjj/)
+- Github - [@Brandon328](https://github.com/Brandon328)
 
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
