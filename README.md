@@ -37,7 +37,7 @@ Users should be able to:
 ### Links
 
 - [Solution URL](https://github.com/Brandon328/countries-api)
-- [Live Site URL](https://brandon328.github.io/countries-api/)
+- [Live Site URL](https://mycountriesapp.netlify.app/)
 
 ## My process
 
