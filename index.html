@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="data:text/css;base64,OnJvb3R7CiAgLS10ZXh0LWNvbG9yOiBoc2woMjAwLCAxNSUsIDglKTsKICAtLWJhY2tncm91bmQtY29sb3I6IGhzbCgwLCAwJSwgOTglKTsKICAtLWVsZW1lbnRzLWNvbG9yOiBoc2woMCwgMCUsIDEwMCUpOwogIC0taW5wdXQ6IGhzbCgwLCAwJSwgNTIlKTsKfQ==" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="data:text/css;base64,OnJvb3R7CiAgLS10ZXh0LWNvbG9yOiBoc2woMCwgMCUsIDEwMCUpICFpbXBvcnRhbnQ7CiAgLS1iYWNrZ3JvdW5kLWNvbG9yOiBoc2woMjA3LCAyNiUsIDE3JSkgIWltcG9ydGFudDsKICAtLWVsZW1lbnRzLWNvbG9yOiBoc2woMjA5LCAyMyUsIDIyJSkgIWltcG9ydGFudDsKfQoKKnsKICBib3gtc2hhZG93OiBub25lICFpbXBvcnRhbnQ7Cn0KCi5iYWNrLWJ0biBpbWd7CiAgY29udGVudDogdXJsKCIvd2hpdGUtbGVmdC1hcnJvdy5zdmciKTsKfQ==" media="(prefers-color-scheme: dark)">
+  <script src="https://rawgit.com/flatiron/director/master/build/director.min.js">
+  </script>
+  <title>All Countries</title>
+  <script type="module" crossorigin src="/assets/index-736323a4.js"></script>
+  <link rel="stylesheet" href="/assets/index-e7a8fa69.css">
+</head>
+
+<body>
+  <header>
+    <h1>
+      <a href="/">Where in the world?</a>
+    </h1>
+    <dark-mode-toggle class="slider">
+    </dark-mode-toggle>
+  </header>
+  <main>
+    <section class="main__header">
+      <div class="back-btn inactive">
+        <img src="left-arrow.svg" alt="arrow icon">
+        <input type="button" value="Back">
+      </div>
+      <form class="search-box">
+        <button id="search-box__btn">
+          <img src="search-icon.svg" alt="search icon">
+        </button>
+        <input id="search-box__input" type="text" placeholder="Search for a country..." required>
+      </form>
+      <select name="regions" id="regions">
+        <option hidden selected>Filter by Region</option>
+        <option value="africa">Africa</option>
+        <option value="america">America</option>
+        <option value="asia">Asia</option>
+        <option value="europe">Europe</option>
+        <option value="oceania">Oceania</option>
+      </select>
+    </section>
+    <section class="countries-gallery"></section>
+    <section class="country-detail-container inactive">
+    </section>
+  </main>
+  
+</body>
+
+</html>
