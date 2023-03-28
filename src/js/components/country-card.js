@@ -14,24 +14,33 @@ class CountryCard extends HTMLElement {
   }
   getTemplate() {
     const template = document.createElement('template');
-    template.innerHTML = `
-      <div class="country-card">
-        <img src="${this.flag}" alt="${this.name} flag">
-        <div class="country-card__info">
-          <h2>${this.name}</h2>
-          <p>
-            <b>Population: </b><span>${this.population}</span>
-          </p>
-          <p>
-            <b>Region: </b><span>${this.region}</span>
-          </p>
-          <p>
-            <b>Capital: </b><span>${this.capital}</span>
-          </p>
+    if (this.name != undefined) {
+      template.innerHTML = `
+        <div class="country-card">
+          <img src="${this.flag}" alt="${this.name} flag">
+          <div class="country-card__info">
+            <h2>${this.name}</h2>
+            <p>
+              <b>Population: </b><span>${this.population}</span>
+            </p>
+            <p>
+              <b>Region: </b><span>${this.region}</span>
+            </p>
+            <p>
+              <b>Capital: </b><span>${this.capital}</span>
+            </p>
+          </div>
         </div>
-      </div>
-      ${this.getStyle()}
-    `;
+        ${this.getStyle()}
+      `;
+    }
+    else {
+      template.innerHTML = `
+        <div class="country-card">
+        </div>
+        ${this.getStyle()}
+      `;
+    }
     return template;
   }
   getStyle() {
@@ -56,6 +65,7 @@ class CountryCard extends HTMLElement {
           transform: scale(1.05);
         }
         img{
+          min-height: 150px;
           border-radius: 6px 6px 0 0;
           width: 100%;
           position: relative;

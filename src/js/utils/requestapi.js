@@ -1,5 +1,33 @@
 import { countriesGallery, countryDetailContainer } from './nodes';
 const API_URL = 'https://restcountries.com/v3.1';
+const nodesCountries = `
+  <country-card class="country-card--loading"></country-card>
+  <country-card class="country-card--loading"></country-card>
+  <country-card class="country-card--loading"></country-card>
+  <country-card class="country-card--loading"></country-card>
+  <country-card class="country-card--loading"></country-card>
+  <country-card class="country-card--loading"></country-card>
+`;
+const nodeCountry = `
+  <country-card class="country-card--loading"></country-card>
+`;
+
+// Observer
+const options = {
+  root: null,
+};
+const observer = new IntersectionObserver(callback, options);
+function callback(entries, observer) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const countryCard = entry.target;
+      const countryFlag = countryCard.shadowRoot.querySelector('img');
+      const flagSrc = countryCard.getAttribute('data-flag');
+      countryFlag.setAttribute('src', flagSrc);
+      observer.unobserve(entry.target); // buenas practicas
+    }
+  });
+}
 
 // Utils
 async function fetchData(endpoint) {
@@ -37,29 +65,39 @@ function printCountries(countries) {
   countries.sort((a, b) => a.name.common.localeCompare(b.name.common));
   countries.forEach(country => {
     const countryCard = document.createElement('country-card');
-    countryCard.flag = country.flags.svg ?? country.flags.png;
+    // countryCard.flag = country.flags.svg ?? country.flags.png;
+    countryCard.setAttribute('data-flag', country.flags.svg ?? country.flags.png);
     countryCard.name = country.name.common;
     countryCard.population = getPopulationString(country.population);
     countryCard.region = country.region;
     countryCard.capital = country.capital == undefined ? 'Unknown' : country.capital[0];
     countriesList.push(countryCard);
+    observer.observe(countryCard)
   });
   countriesGallery.append(...countriesList);
 }
-function printSearchNotFound(country, container) {
+function printErrorNotFound(message, container) {
   countriesGallery.innerHTML = '';
-  const notFoundPage = document.createElement('search-not-found');
-  notFoundPage.text = country;
+  const notFoundPage = document.createElement('error-not-found');
+  notFoundPage.message = message;
   container.appendChild(notFoundPage);
+}
+function loadingCountries() {
+  countriesGallery.innerHTML = nodesCountries;
 }
 
 // API Requests
 async function getCountries() {
+  loadingCountries();
   const countries = await fetchData('/all?fields=name,capital,region,population,flags');
-  printCountries(countries);
+  if (countries !== 'error')
+    printCountries(countries);
+  else
+    printErrorNotFound(
+      `An error ocurred and your request couldn't be completed. Please try it again later.`,
+      countriesGallery);
 }
 async function getCountry(countryName) {
-  //If country does not exit, show 404 error - country not found;
   countryDetailContainer.innerHTML = '';
   const response = await fetchData(`/name/${countryName}?fields=name,capital,region,subregion,languages,flags,population,borders,currencies,tld`);
   if (response !== 'error') {
@@ -82,22 +120,30 @@ async function getCountry(countryName) {
     countryDetailContainer.appendChild(countryDetail);
   }
   else
-    printSearchNotFound(countryName, countryDetailContainer);
+    printErrorNotFound(
+      `The country <code> ${countryName}</code> was not found in our database.`,
+      countryDetailContainer);
 }
 async function getCountryBySearch(input) {
+  loadingCountries();
   const inputDecoded = decodeURI(input);
   const countries = await fetchData(`/name/${inputDecoded}?fields=name,capital,region,population,flags`);
   if (countries !== 'error')
     printCountries(countries);
   else
-    printSearchNotFound(inputDecoded, countriesGallery);
+    printErrorNotFound(
+      `The country <code> ${inputDecoded}</code> was not found in our database.`,
+      countriesGallery);
 }
 async function filterByRegion(region) {
+  loadingCountries();
   const countries = await fetchData(`/region/${region}`);
   if (countries !== 'error')
     printCountries(countries);
   else
-    printSearchNotFound(region, countriesGallery);
+    printErrorNotFound(
+      `The region <code> ${region}</code> was not found in our database.`,
+      countriesGallery);
 }
 
 export { getCountries, getCountry, getCountryBySearch, filterByRegion };

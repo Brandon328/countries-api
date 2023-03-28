@@ -118,6 +118,35 @@ select[name="regions"]:focus {
 .inactive{
   display: none;
 }
+.countries-gallery .country-card--loading{
+  animation: loading infinite 1.3s;
+}
+.countries-gallery .country-card--loading:nth-child(2){
+  animation-delay: 0.2s;
+}
+.countries-gallery .country-card--loading:nth-child(3){
+  animation-delay: 0.4s;
+}
+.countries-gallery .country-card--loading:nth-child(4){
+  animation-delay: 0.6s;
+}
+.countries-gallery .country-card--loading:nth-child(5){
+  animation-delay: 0.8s;
+}
+.countries-gallery .country-card--loading:nth-child(6){
+  animation-delay: 1s;
+}
+@keyframes loading {
+  0%,
+  100% {
+    opacity: 100%;
+  }
+
+  50% {
+    opacity: 0%;
+  }
+}
+
 
 /* Responsive */
 @media (min-width:600px) {

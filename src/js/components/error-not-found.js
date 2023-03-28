@@ -1,10 +1,10 @@
-class SearchNotFound extends HTMLElement {
+class ErrorNotFound extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
   }
   static get observedAttributes() {
-    return ['text',];
+    return ['message',];
   }
   attributeChangedCallback(attr, oldValue, newValue) {
     if (oldValue !== newValue) {
@@ -16,7 +16,7 @@ class SearchNotFound extends HTMLElement {
     template.innerHTML = `
       <img src="/notfound-illustration.svg"/>
       <h2>Sorry!</h2>
-      <p>The country <code>${this.text}</code> was not found in our database.</p>
+      <p>${this.message}</p>
       ${this.getStyle()}
     `;
     return template;
@@ -29,6 +29,9 @@ class SearchNotFound extends HTMLElement {
         }
         h2{
           text-align:center;
+        }
+        p{
+          text-align: center;
         }
         img{
           width: 80%;
@@ -46,4 +49,4 @@ class SearchNotFound extends HTMLElement {
     this.render();
   }
 }
-customElements.define('search-not-found', SearchNotFound);
+customElements.define('error-not-found', ErrorNotFound);
